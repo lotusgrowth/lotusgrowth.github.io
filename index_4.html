@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lotus Growth Team — Operations &amp; Brand Support for Coaches, Therapists &amp; Healers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream: #F7F2E7;
+    --ink: #241C15;
+    --ink-soft: #5C4E3E;
+    --pink: #E2637A;
+    --pink-deep: #9C3D50;
+    --sage: #A8710F;
+    --sage-pale: #EFF2E9;
+    --clay: #C98A2B;
+    --water: #3F6B4A;
+    --line: rgba(36,28,21,0.14);
+    --radius: 2px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Manrope', sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.serif{
+    font-family:'Newsreader', serif;
+    font-weight:500;
+    line-height:1.15;
+    color:var(--ink);
+    margin:0;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 32px;}
+  section{padding:96px 0;}
+  .eyebrow{
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--sage);
+    font-weight:600;
+    margin-bottom:14px;
+    display:block;
+  }
+
+  /* Nav */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(250,246,239,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  nav{
+    max-width:1080px;margin:0 auto;padding:20px 32px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .logo{font-family:'Newsreader',serif;font-size:20px;font-weight:600;letter-spacing:0.01em;}
+  .logo em{font-style:normal;color:var(--pink-deep);}
+  .navlinks{display:flex;gap:32px;font-size:14px;font-weight:600;}
+  .navlinks a{text-decoration:none;opacity:0.8;transition:opacity .2s;}
+  .navlinks a:hover{opacity:1;}
+  .cta-btn{
+    display:inline-block;
+    background:var(--pink-deep);
+    color:var(--cream);
+    padding:12px 26px;
+    border-radius:var(--radius);
+    text-decoration:none;
+    font-weight:600;
+    font-size:14px;
+    letter-spacing:0.02em;
+    transition:transform .2s ease, background .2s ease;
+  }
+  .cta-btn:hover{background:#432730; transform:translateY(-1px);}
+  .cta-btn.ghost{
+    background:transparent;
+    border:1.5px solid var(--ink);
+    color:var(--ink);
+  }
+  .cta-btn.ghost:hover{background:var(--ink);color:var(--cream);}
+
+  /* Hero */
+  .hero{
+    padding:120px 0 100px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero .wrap{position:relative; z-index:2;}
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:64px;
+    align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(38px,5vw,58px);
+    letter-spacing:-0.01em;
+  }
+  .hero h1 .accent{color:var(--pink-deep); font-style:italic;}
+  .hero p.lede{
+    font-size:19px;
+    color:var(--ink-soft);
+    max-width:480px;
+    margin:24px 0 36px;
+  }
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;}
+
+  .ripple-svg{width:100%;height:auto;}
+
+  /* Water divider */
+  .divider{
+    height:1px;
+    background:linear-gradient(90deg, transparent, var(--line) 20%, var(--line) 80%, transparent);
+    margin:0;
+  }
+
+  /* Who we serve */
+  .serve-band{background:var(--sage-pale);}
+  .serve-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+    background:var(--line);
+    margin-top:48px;
+    border:1px solid var(--line);
+  }
+  .serve-card{
+    background:var(--sage-pale);
+    padding:32px 26px;
+  }
+  .serve-card .role{
+    font-family:'Newsreader',serif;
+    font-size:19px;
+    margin-bottom:10px;
+  }
+  .serve-card p{font-size:14.5px;color:var(--ink-soft);margin:0;}
+
+  /* Section headers */
+  .section-head{max-width:620px;margin-bottom:56px;}
+  .section-head h2{font-size:clamp(28px,3.4vw,38px);}
+  .section-head p{color:var(--ink-soft); font-size:17px; margin-top:16px;}
+
+  /* Growth stages (the signature element) */
+  .stages{position:relative;}
+  .stage-track{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:32px;
+    position:relative;
+  }
+  .stage-track::before{
+    content:'';
+    position:absolute;
+    top:46px; left:8%; right:8%;
+    height:1px;
+    background:repeating-linear-gradient(90deg, var(--clay) 0 6px, transparent 6px 12px);
+    z-index:0;
+  }
+  .stage{
+    position:relative;
+    z-index:1;
+    background:var(--cream);
+  }
+  .stage-num{
+    width:92px;height:92px;
+    border-radius:50%;
+    border:1.5px solid var(--clay);
+    display:flex;align-items:center;justify-content:center;
+    background:var(--cream);
+    margin-bottom:24px;
+  }
+  .stage-num span{font-family:'Newsreader',serif; font-size:15px; color:var(--pink-deep); font-weight:600;}
+  .stage h3{font-size:22px; margin-bottom:4px;}
+  .stage .price{
+    font-size:13px; color:var(--sage); font-weight:600; letter-spacing:0.02em;
+    margin-bottom:16px; display:block;
+  }
+  .stage ul{padding-left:0; margin:0; list-style:none;}
+  .stage li{
+    font-size:14.5px; color:var(--ink-soft);
+    padding-left:18px; position:relative; margin-bottom:10px;
+  }
+  .stage li::before{
+    content:'—'; position:absolute; left:0; color:var(--clay);
+  }
+
+  /* Process / proof band */
+  .process-band{background:var(--ink); color:var(--cream);}
+  .process-band .eyebrow{color:var(--pink);}
+  .process-band h2{color:var(--cream);}
+  .process-band .section-head p{color:rgba(250,246,239,0.72);}
+  .process-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:40px;
+  }
+  .process-card{border-top:1px solid rgba(250,246,239,0.22); padding-top:22px;}
+  .process-card .idx{font-family:'Newsreader',serif; font-size:14px; color:var(--pink); margin-bottom:14px; display:block;}
+  .process-card h3{color:var(--cream); font-size:19px; margin-bottom:10px;}
+  .process-card p{font-size:14.5px; color:rgba(250,246,239,0.68); margin:0;}
+
+  /* Founding client */
+  .founding{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:64px;
+    align-items:center;
+  }
+  .founding-note{
+    background:var(--cream);
+    border:1px solid var(--line);
+    padding:36px;
+    border-radius:var(--radius);
+  }
+  .founding-note .kicker{
+    font-family:'Newsreader',serif;font-style:italic; font-size:15px; color:var(--pink-deep); display:block; margin-bottom:14px;
+  }
+  .founding-note ul{margin:20px 0 0; padding-left:0; list-style:none;}
+  .founding-note li{
+    font-size:14.5px; padding-left:20px; position:relative; margin-bottom:10px; color:var(--ink-soft);
+  }
+  .founding-note li::before{content:'✦'; position:absolute; left:0; color:var(--sage); font-size:11px; top:3px;}
+
+  /* Trust / ethics */
+  .trust-band{background:var(--sage-pale);}
+  .trust-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:40px;
+  }
+  .trust-card h3{font-size:18px; margin-bottom:10px;}
+  .trust-card p{font-size:14.5px; color:var(--ink-soft); margin:0;}
+
+  /* Final CTA */
+  .final-cta{
+    text-align:center;
+    padding:110px 0;
+  }
+  .final-cta h2{font-size:clamp(32px,4vw,46px); max-width:680px; margin:0 auto 20px;}
+  .final-cta p{color:var(--ink-soft); font-size:17px; max-width:520px; margin:0 auto 36px;}
+
+  footer{
+    border-top:1px solid var(--line);
+    padding:40px 0;
+    font-size:13.5px;
+    color:var(--ink-soft);
+  }
+  footer .wrap{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;}
+  footer a{text-decoration:none; font-weight:600;}
+
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr;}
+    .serve-grid{grid-template-columns:repeat(2,1fr);}
+    .stage-track{grid-template-columns:1fr; gap:56px;}
+    .stage-track::before{display:none;}
+    .process-grid{grid-template-columns:1fr; gap:32px;}
+    .founding{grid-template-columns:1fr;}
+    .trust-grid{grid-template-columns:1fr;}
+    .navlinks{display:none;}
+    section{padding:64px 0;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+
+  :focus-visible{outline:2px solid var(--pink-deep); outline-offset:3px;}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">Lotus Growth <em>Team</em></div>
+    <div class="navlinks">
+      <a href="#serve">Who We Serve</a>
+      <a href="#stages">Packages</a>
+      <a href="#process">How We Work</a>
+      <a href="#founding">Founding Clients</a>
+    </div>
+    <a class="cta-btn" href="#contact">Book a Clarity Call</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">Operations, Brand &amp; Growth Support</span>
+        <h1>The back end of your business, <span class="accent">held with care.</span></h1>
+        <p class="lede">Lotus Growth Team runs the sales, marketing, and admin behind your coaching, therapy, or wellness practice — so your energy stays where it belongs: with your clients.</p>
+        <div class="hero-actions">
+          <a class="cta-btn" href="#contact">Book a Clarity Call</a>
+          <a class="cta-btn ghost" href="#stages">See how we work together</a>
+        </div>
+      </div>
+      <div>
+        <svg class="ripple-svg" viewBox="0 0 420 420" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of concentric ripples with a lotus bloom">
+          <circle cx="210" cy="230" r="170" stroke="#C98A2B" stroke-opacity="0.3" stroke-width="1"/>
+          <circle cx="210" cy="230" r="130" stroke="#C98A2B" stroke-opacity="0.4" stroke-width="1"/>
+          <circle cx="210" cy="230" r="90" stroke="#C98A2B" stroke-opacity="0.55" stroke-width="1"/>
+          <g transform="translate(210,150)">
+            <path d="M0 60 C -34 40 -34 0 0 -20 C 34 0 34 40 0 60 Z" fill="#E2637A" fill-opacity="0.9"/>
+            <path d="M0 60 C -20 46 -20 18 0 2 C 20 18 20 46 0 60 Z" fill="#9C3D50" fill-opacity="0.95"/>
+            <path d="M-38 46 C -50 30 -42 4 -14 -6 C -26 14 -30 32 -38 46 Z" fill="#E2637A" fill-opacity="0.7"/>
+            <path d="M38 46 C 50 30 42 4 14 -6 C 26 14 30 32 38 46 Z" fill="#E2637A" fill-opacity="0.7"/>
+            <circle cx="0" cy="10" r="7" fill="#C98A2B"/>
+          </g>
+          <line x1="210" y1="215" x2="210" y2="330" stroke="#3F6B4A" stroke-width="2"/>
+          <path d="M170 330 Q210 300 250 330" stroke="#3F6B4A" stroke-width="2" fill="none"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="serve-band" id="serve">
+  <div class="wrap">
+    <span class="eyebrow">Who We Serve</span>
+    <h2>Built for people whose work is the point — not the paperwork.</h2>
+    <div class="serve-grid">
+      <div class="serve-card">
+        <div class="role">Coaches</div>
+        <p>Growing a client base but drowning in scheduling, launches, and content logistics.</p>
+      </div>
+      <div class="serve-card">
+        <div class="role">Therapists</div>
+        <p>Deeply careful about confidentiality and ethics — need a partner who understands both.</p>
+      </div>
+      <div class="serve-card">
+        <div class="role">Healers</div>
+        <p>Intuitive, creative practitioners who need someone else to hold the structure.</p>
+      </div>
+      <div class="serve-card">
+        <div class="role">Trainers</div>
+        <p>Building programs and community, but stretched thin across delivery and admin.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stages" id="stages">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">How We Grow Together</span>
+      <h2>Three stages, one steady partnership.</h2>
+      <p>Like anything that grows well, this isn't instant — it moves through real stages, at your pace.</p>
+    </div>
+    <div class="stage-track">
+      <div class="stage">
+        <div class="stage-num"><span>Bud</span></div>
+        <h3>Foundational Support</h3>
+        <span class="price">Project-based · from $400</span>
+        <ul>
+          <li>A single, high-focus asset (offer, launch, or branding piece)</li>
+          <li>No long-term commitment — trial the partnership first</li>
+          <li>Fast turnaround on a defined scope</li>
+        </ul>
+      </div>
+      <div class="stage">
+        <div class="stage-num"><span>Stem</span></div>
+        <h3>Grounded Partnership</h3>
+        <span class="price">Monthly retainer</span>
+        <ul>
+          <li>Ongoing backend + systems support</li>
+          <li>Weekly check-ins to keep things steady</li>
+          <li>Content &amp; scheduling handled consistently</li>
+        </ul>
+      </div>
+      <div class="stage">
+        <div class="stage-num"><span>Bloom</span></div>
+        <h3>Full Growth Team</h3>
+        <span class="price">Monthly retainer · dedicated team</span>
+        <ul>
+          <li>A small team (VA + OBM) coordinated for you</li>
+          <li>Strategy, launches, and daily ops covered</li>
+          <li>Built for practices ready to scale with intention</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process-band" id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Proof Of Process</span>
+      <h2>We're new — here's exactly how we work, so you can see it for yourself.</h2>
+      <p>Rather than filling this space with logos we haven't earned yet, here's the real process every client moves through.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-card">
+        <span class="idx">01</span>
+        <h3>Clarity Call</h3>
+        <p>A real conversation about your business, your bottlenecks, and whether we're a fit — no pitch deck, just listening.</p>
+      </div>
+      <div class="process-card">
+        <span class="idx">02</span>
+        <h3>Scoped Agreement</h3>
+        <p>We align on priorities and put it in writing — clear scope, clear boundaries, signed by both sides.</p>
+      </div>
+      <div class="process-card">
+        <span class="idx">03</span>
+        <h3>Steady Delivery</h3>
+        <p>Work happens on a consistent rhythm, with regular reflection points so nothing drifts quietly off course.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="founding" id="founding">
+  <div class="wrap founding">
+    <div>
+      <span class="eyebrow">Founding Client Offer</span>
+      <h2>Be one of our first two clients — and help shape how we work.</h2>
+      <p style="color:var(--ink-soft); margin-top:18px; font-size:17px;">We're intentionally starting small. In exchange for your honest feedback and a testimonial, founding clients get preferred rates and closer attention than we'll be able to offer later.</p>
+    </div>
+    <div class="founding-note">
+      <span class="kicker">What founding clients receive</span>
+      <ul>
+        <li>Discounted rate locked in for your first engagement</li>
+        <li>Direct input into how our packages and process evolve</li>
+        <li>Priority scheduling as our team grows</li>
+        <li>A partner who's genuinely invested in getting your case right</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="trust-band">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">How We Hold Your Business</span>
+      <h2>Trust isn't a tagline here — it's the operating model.</h2>
+    </div>
+    <div class="trust-grid">
+      <div class="trust-card">
+        <h3>Confidentiality by default</h3>
+        <p>NDAs signed as standard practice, not a special request. Client information is treated with the same discretion we'd want for our own.</p>
+      </div>
+      <div class="trust-card">
+        <h3>Ethical marketing only</h3>
+        <p>We won't write pushy, salesy copy that conflicts with a coaching or therapeutic code of ethics — we ask first, always.</p>
+      </div>
+      <div class="trust-card">
+        <h3>A team, not a stranger each time</h3>
+        <p>You work with a small, coordinated team — not a rotating cast of freelancers. Consistency is part of the care.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta" id="contact">
+  <div class="wrap">
+    <h2>Ready to hand off what's not yours to carry?</h2>
+    <p>A clarity call is a conversation, not a sales pitch. Let's see if we're a fit.</p>
+    <a class="cta-btn" href="mailto:hello@lotusgrowthteam.com">Book a Clarity Call</a>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Lotus Growth Team</span>
+    <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
+  </div>
+</footer>
+
+</body>
+</html>
